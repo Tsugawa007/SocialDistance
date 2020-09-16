@@ -44,17 +44,15 @@ while True:
     D = dist.cdist(centroids,centroids,metric = "euclidean")
     for i in range(0,D.shape[0]):
         for j in range(i+1,D.shape[1]):
+            '''
             if D[i,j] != 0.0 and D[i,j] > dist_max:
                 dist_max = D[i,j]
             elif D[i,j] != 0.0 and D[i,j] < dist_min:
                 dist_min = D[i,j]
+            '''
             if  D[i,j] != 0.0 and D[i,j]  < 0.07:
-# and dist_min > D[i,j]:
                 violate.add(i)
                 violate.add(j)
-            #if D[i,j] != 0.0 and D[i,j] < 0.000000000001:
-                #violate.add(i)
-                #violate.add(j)
     print(D)
     #print(dist_min)
     #print(dist_max)
