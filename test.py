@@ -1,4 +1,4 @@
-mport cv2
+import cv2
 import numpy as np
 from scipy.spatial import distance as dist
 from openvino.inference_engine import IENetwork, IEPlugin
