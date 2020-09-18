@@ -1,82 +1,85 @@
 import cv2
 import numpy as np
 from scipy.spatial import distance as dist
-from openvino.inference_engine import IENetwork, IEPlugin
+from openvino.inference_engine import IENetwork, IEPlugin,IECore
+#chage the path
+model_path = '/home/ubuntu/intel/person-detection-retail-0013/FP32/person-detection-retail-0013'
+# plugin = IEPlugin(device='MYRIAD')
+# plugin = IEPlugin(device='CPU')
 
+## do not use IEplugin,it's unsupport in future
+#DEVICE = 'MYRIAD'
+DEVICE = 'CPU'
+INPUT = './test.jpg'
+MODEL_WIDTH  = 544
+MODEL_HEIGHT = 320
+WINDOWS_TITLE = 'title'
 
-#net =  IENetwork.from_ir(model='intel/person-detection-retail-0013/FP16/person-detection-retail-00130.xml',weights='intel/person-detection-retail-0013/FP16/person-detection-retail-00130.bin')
-# ターゲットデバイスの指定 
-plugin = IEPlugin(device='MYRIAD')
-
-# モデルの読み込み 
-net = IENetwork(model='/home/aidl/workspace/intel/person-detection-retail-0013/FP16/person-detection-retail-0013.xml',weights='/home/aidl/workspace/intel/person-detection-retail-0013/FP16/person-detection-retail-0013.bin')
-exec_net = plugin.load(network=net)
+ie = IECore()
+net_path = ie.read_network(model=model_path+'.xml',weights=model_path+'.bin')
+exec_net = ie.load_network(net_path,DEVICE) 
  
-# 入出力データのキー取得 
-#input_blob = next(iter(net.inputs))
-#out_blob = next(iter(net.outputs))
+frame = cv2.imread(INPUT)
+frame = cv2.resize(frame,(MODEL_WIDTH,MODEL_HEIGHT))
+out= frame.transpose((2,0,1))
+out = np.expand_dims(out,axis=0)
+out = exec_net.infer(inputs={'data':out})
+out = out['detection_out']
+out = np.squeeze(out).astype('float')
 
-# 画像読み込み 
-#frame = cv2.imread('pedestrian5.mp4')
-#cap = cv2.VideoCapture(0)
-cap = cv2.VideoCapture('ppp.264')
+SIMILAR = 1.3
+SAFETY_DIST = 1.5 
+def violate(detections,similar,safe_dist):
+    centorids = []
+    width = []
+    violate = []
+    for detection in detections:
+        # confidence = detection[2]
+        if detection[2] >0.6:
+            a = [(detection[5]-detection[3])/2+detection[3],(detection[6]-detection[4])/2+detection[4]] 
+            w = np.abs([detection[5]-detection[3]])
+            centorids.append(a)
+            width.append(w)
+    centorids = np.array(centorids)
+    width = np.array(width)
+    width_sup = width/width.T
+    for i,row in enumerate(width_sup):
+        for j,col in enumerate(row):
+            if j<=i:
+                continue
+            if col < similar and col > 1/similar : #similar check
+               # print(i,j,col)
+               centor_dist =float(abs(centorids[i][0]-centorids[j][0]))
+               width_avg = float(abs((width[i]+width[j])/2))
+               #distance check
+               if centor_dist < (width_avg*safe_dist):
+                   print(detections[i])
+                   violate.append(i)
+                   violate.append(j)
+    return violate
 
-while True:
+violate = violate(out,SIMILAR,SAFETY_DIST)
 
-    # read the next frame from the file
-    ret, frame = cap.read()# if the frame was not grabbed, then we have reached the end 
-    if ret == False:
-        continue
-    img = cv2.resize(frame, (544,320)) # HeightとWidth変更 
-    img = img.transpose((2, 0, 1))    # HWC > CHW 
-    img = np.expand_dims(img, axis=0) # CHW > BCHW
-    out = exec_net.infer(inputs={'data': img})
- 
-    # 出力から必要なデータのみ取り出し 
-    out = out['detection_out']
-    # 不要な次元を削減 
-    out = np.squeeze(out)
 
-    violate = set()
-    centroids = np.array([[(float(detection[5])-float(detection[3]))/2+float(detection[3]),(float(detection[6])-float(detection[4]))/2+float(detection[4])] for detection in out ])
-    dist_min = 1.0
-    dist_max = 0.0001
-    D = dist.cdist(centroids,centroids,metric = "euclidean")
-    for i in range(0,D.shape[0]):
-        for j in range(i+1,D.shape[1]):
-            '''
-            if D[i,j] != 0.0 and D[i,j] > dist_max:
-                dist_max = D[i,j]
-            elif D[i,j] != 0.0 and D[i,j] < dist_min:
-                dist_min = D[i,j]
-            '''
-            if  D[i,j] != 0.0 and D[i,j]  < 0.07:
-                violate.add(i)
-                violate.add(j)
-    print(D)
-    #print(dist_min)
-    #print(dist_max)
-    violate = list(violate)
-    #for detection in out:
-    for i,detection in enumerate(out):
-        #print(violate)
-        confidence = float(detection[2])
-        x_min = int(detection[3] * frame.shape[1])
-        y_min = int(detection[4] * frame.shape[0])
-        x_max = int(detection[5] * frame.shape[1])
-        y_max = int(detection[6] * frame.shape[0])
+ALTER_COLOR = (0,0,255) #BGR 
+SAFE_COLOR  = (0,255,0) 
+THICKNESS = 2
+for i,detection in enumerate(out):
+    confidence = detection[2]
+    if confidence > 0.6:
+        x_min = int(detection[3]*544)
+        y_min = int(detection[4]*320)
+        x_max = int(detection[5]*544)
+        y_max = int(detection[6]*320)
         if i in violate:
-            color = (0,0,255)
+            color = ALTER_COLOR
         else:
-            color = (0,255,0)
-        
-        if confidence > 0.6:
-            #print(color)
-            cv2.rectangle(frame,(x_min,y_min),(x_max,y_max),color,thickness = 3)
-            #print(float(detection[5])-float(detection[3]),float(detection[6])-float(detection[4]))
-    cv2.imshow("frame",frame)
-    key = cv2.waitKey(1)
-    if key != -1:
-        break
-cap.release()
+            color = SAFE_COLOR
+
+        cv2.rectangle(frame,(x_min,y_min),(x_max,y_max),color,THICKNESS)
+
+cv2.imshow(WINDOWS_TITLE,frame)
+cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+
