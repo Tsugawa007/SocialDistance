@@ -10,9 +10,8 @@ plugin = IEPlugin(device='MYRIAD')
 net = IENetwork(model='/home/aidl/workspace/intel/person-detection-retail-0013/FP16/person-detection-retail-0013.xml',weights='/home/aidl/workspace/intel/person-detection-retail-0013/FP16/person-detection-retail-0013.bin')
 exec_net = plugin.load(network=net)
  
-# 入出力データのキー取得 
-#input_blob = next(iter(net.inputs))
-#out_blob = next(iter(net.outputs))
+WINDOWS_TITLE = 'title'
+CONFIDENCE_RATIO = 0.6
 
 # 画像読み込み 
 cap = cv2.VideoCapture('ppp.264')
@@ -32,45 +31,26 @@ while True:
     out = out['detection_out']
     # 不要な次元を削減 
     out = np.squeeze(out)
+    violate = violate(out,SIMILAR,SAFETY_DIST)
 
-    violate = set()
-    centroids = np.array([[(float(detection[5])-float(detection[3]))/2+float(detection[3]),(float(detection[6])-float(detection[4]))/2+float(detection[4])] for detection in out ])
-    dist_min = 1.0
-    dist_max = 0.0001
-    D = dist.cdist(centroids,centroids,metric = "euclidean")
-    for i in range(0,D.shape[0]):
-        for j in range(i+1,D.shape[1]):
-            '''
-            if D[i,j] != 0.0 and D[i,j] > dist_max:
-                dist_max = D[i,j]
-            elif D[i,j] != 0.0 and D[i,j] < dist_min:
-                dist_min = D[i,j]
-            '''
-            if  D[i,j] != 0.0 and D[i,j]  < 0.07:
-                violate.add(i)
-                violate.add(j)
-    print(D)
-    #print(dist_min)
-    #print(dist_max)
-    violate = list(violate)
-    #for detection in out:
+
+    ALTER_COLOR = (0,0,255) #BGR 
+    SAFE_COLOR  = (0,255,0) 
+    THICKNESS = 2
     for i,detection in enumerate(out):
-        #print(violate)
-        confidence = float(detection[2])
-        x_min = int(detection[3] * frame.shape[1])
-        y_min = int(detection[4] * frame.shape[0])
-        x_max = int(detection[5] * frame.shape[1])
-        y_max = int(detection[6] * frame.shape[0])
-        if i in violate:
-            color = (0,0,255)
-        else:
-            color = (0,255,0)
-        
-        if confidence > 0.6:
-            #print(color)
-            cv2.rectangle(frame,(x_min,y_min),(x_max,y_max),color,thickness = 3)
-            #print(float(detection[5])-float(detection[3]),float(detection[6])-float(detection[4]))
-    cv2.imshow("frame",frame)
+        if detection[2] > CONFIDENCE_RATIO:
+            x_min = int(detection[3]*MODEL_WIDTH)
+            y_min = int(detection[4]*MODEL_HEIGHT)
+            x_max = int(detection[5]*MODEL_WIDTH)
+            y_max = int(detection[6]*MODEL_HEIGHT)
+            if i in violate:
+                color = ALTER_COLOR
+            else:
+                color = SAFE_COLOR
+
+            cv2.rectangle(frame,(x_min,y_min),(x_max,y_max),color,THICKNESS)
+
+    cv2.imshow(WINDOWS_TITLE,frame)
     key = cv2.waitKey(1)
     if key != -1:
         break
