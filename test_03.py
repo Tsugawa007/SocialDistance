@@ -16,6 +16,35 @@ CONFIDENCE_RATIO = 0.6
 # 画像読み込み 
 cap = cv2.VideoCapture('ppp.264')
 
+def violate(detections,similar,safe_dist):
+    centorids = []
+    width = []
+    violate = []
+    for detection in detections:
+        # confidence = detection[2]
+        if detection[2] >CONFIDENCE_RATIO:
+            a = [(detection[5]-detection[3])/2+detection[3],(detection[6]-detection[4])/2+detection[4]] 
+            w = np.abs([detection[5]-detection[3]])
+            centorids.append(a)
+            width.append(w)
+    centorids = np.array(centorids)
+    width = np.array(width)
+    width_sup = width/width.T #calculate the rate between widths
+    for i,row in enumerate(width_sup):
+        for j,col in enumerate(row):
+            if j<=i:
+                continue
+            if col < similar and col > 1/similar : #similar check
+               # print(i,j,col)
+               centor_dist =float(abs(centorids[i][0]-centorids[j][0]))
+               width_avg = float(abs((width[i]+width[j])/2))
+               #distance check
+               if centor_dist < (width_avg*safe_dist):
+                   print(detections[i])
+                   violate.append(i)
+                   violate.append(j)
+    return violate
+
 while True:
 
     # read the next frame from the file
