@@ -12,6 +12,8 @@ exec_net = plugin.load(network=net)
  
 WINDOWS_TITLE = 'title'
 CONFIDENCE_RATIO = 0.6
+SIMILAR = 1.3
+SAFETY_DIST = 1.5 
 
 # 画像読み込み 
 cap = cv2.VideoCapture('ppp.264')
