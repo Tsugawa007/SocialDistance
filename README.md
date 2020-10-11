@@ -5,6 +5,8 @@ AI X CORE　を使用して、30秒間のSocialDistanceを計測するプログ�
 
 瞬間的にSocialDistanceを違反したら緑色、30秒間違反したら赤くなります。
 
+
+
 # AIモデルについて
 
 Intelの二つのAIモデルを使用した
