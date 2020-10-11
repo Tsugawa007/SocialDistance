@@ -4,6 +4,8 @@ AI X CORE　を使用して、30秒間のSocialDistanceを計測するプログ�
 # 特徴
 
 瞬間的にSocialDistanceを違反したら緑色、30秒間違反したら赤くなります。
+
+静止画
 ![静止画](https://github.com/AAEEON/SocialDistance/blob/master/shot.png)
 
 
