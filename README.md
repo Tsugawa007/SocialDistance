@@ -1,6 +1,6 @@
 <br>
 
-# Englishversion
+# English version
 
 <br>
 
