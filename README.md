@@ -1,7 +1,10 @@
 # 学生でも作成できる！お手軽SocialDistanceプログラム
 AI X CORE　を使用して、30秒間のSocialDistanceを計測するプログラム
 
-AI X COREとは？:https://jellyware.jp/aicorex/
+# AI X COREとは？
+:https://jellyware.jp/aicorex/
+
+
 
 
 # 特徴
