@@ -9,8 +9,9 @@ This is a program that measures Social distance for 30 seconds using AI CORE X.
 If you have no AI expertise,You can make it quickly using python.
 
 What is AI CORE X？
-**(Sorry, the website is written in Japanese. Please translate with Google TranslateSorry and read it)**
 :https://jellyware.jp/aicorex/
+**(Sorry, the website is written in Japanese. Please translate with Google TranslateSorry and read it)**
+
 
 <br>
 <br>
