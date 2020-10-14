@@ -5,17 +5,18 @@
 <br>
 
 ## A Social distance program  that is easier and faster to make!
-This is a program that measures Social distance for 30 seconds using AI X CORE.
+This is a program that measures Social distance for 30 seconds using AI CORE X.
 If you have no AI expertise,You can make it quickly using python.
 
-What is AI X CORE？
+What is AI CORE X？
+**(Sorry, the website is written in Japanese. Please translate with Google TranslateSorry and read it)**
 :https://jellyware.jp/aicorex/
 
 <br>
 <br>
 
 ## Envioroment
-・AI X CORE 
+・AI CORE X 
 ・OpenVino version is " 2020 1"
 
 
@@ -94,10 +95,10 @@ Because it is not the actual Social Distance distance, but the x and y coordinat
 <br>
 
 ## 学生でも作成できる！お手軽SocialDistanceプログラム
-AI X CORE　を使用して、30秒間のSocialDistanceを計測するプログラムです。
+AI CORE X　を使用して、30秒間のSocialDistanceを計測するプログラムです。
 AIの専門知識がなくても、pytonを使用して、短期間で、作成できます。
 
-AI X COREとは？
+AI CORE Xとは？
 :https://jellyware.jp/aicorex/
 
 <br>
@@ -148,7 +149,7 @@ https://docs.openvinotoolkit.org/2020.1/_models_intel_person_reidentification_re
 
 ## 実行手順
 [注意]
-このプログラムは、AI X CORE(デバイスは"**MYRIAD**"、OpenVinoのversionは"**2020年1**")を使用した、Social＿Distanceプログラムです。
+このプログラムは、AI CORE X(デバイスは"**MYRIAD**"、OpenVinoのversionは"**2020年1**")を使用した、Social＿Distanceプログラムです。
 よって、デバイス、OpenVinoのversionが異なると、使用するAIモデル、AIモデルのSettingのコードを変更する必要があります。
 その点を、踏まえてコードをご覧になって頂くと、幸いです。
 
