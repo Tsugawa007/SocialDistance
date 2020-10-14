@@ -1,6 +1,9 @@
 <br>
+# Japanese
 
-# 学生でも作成できる！お手軽SocialDistanceプログラム
+<br>
+
+## 学生でも作成できる！お手軽SocialDistanceプログラム
 AI X CORE　を使用して、30秒間のSocialDistanceを計測するプログラムです。
 AIの専門知識がなくても、pytonを使用して、短期間で、作成できます。
 
@@ -10,7 +13,7 @@ AI X COREとは？
 <br>
 <br>
 
-# 特徴
+## 特徴
 
 瞬間的にSocialDistanceを違反したら緑色、30秒間違反したら赤くなります。
 
@@ -22,7 +25,7 @@ AI X COREとは？
 <br>
 <br>
 
-# AIモデルについて
+## AIモデルについて
 
 Intelの二つのAIモデルを使用しました。
 
@@ -35,7 +38,7 @@ https://docs.openvinotoolkit.org/2020.1/_models_intel_person_reidentification_re
 <br>
 <br>
 
-# 工夫した点
+## 工夫した点
 
 モザイク処理をかけたました。
 
@@ -44,7 +47,7 @@ https://docs.openvinotoolkit.org/2020.1/_models_intel_person_reidentification_re
 <br>
 <br>
 
-# 今後改善したいところ
+## 今後改善したいところ
 
 既存のAIモデルを使用すると、精度に限界があります。
 また、SocialDistaceの計算方法も、単純なユークリッド行列距離をしています。
@@ -53,7 +56,7 @@ https://docs.openvinotoolkit.org/2020.1/_models_intel_person_reidentification_re
 <br>
 <br>
 
-# 実行手順
+## 実行手順
 [注意]
 このプログラムは、AI X CORE(デバイスは"**MYRIAD**"、OpenVinoのversionは"**2020年1**")を使用した、Social＿Distanceプログラムです。
 よって、デバイス、OpenVinoのversionが異なると、使用するAIモデル、AIモデルのSettingのコードを変更する必要があります。
