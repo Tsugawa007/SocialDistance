@@ -5,6 +5,7 @@ AI X COREとは？
 :https://jellyware.jp/aicorex/
 
 <br>
+
 # 特徴
 
 瞬間的にSocialDistanceを違反したら緑色、30秒間違反したら赤くなります。
