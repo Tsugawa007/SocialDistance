@@ -14,7 +14,9 @@ AI X COREとは？
 
 瞬間的にSocialDistanceを違反したら緑色、30秒間違反したら赤くなります。
 
-静止画
+<br>
+
+# 静止画
 ![静止画](https://github.com/AAEEON/SocialDistance/blob/master/shot.png)
 
 <br>
