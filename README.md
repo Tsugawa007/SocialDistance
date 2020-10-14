@@ -36,13 +36,13 @@ Intelの二つのAIモデルを使用した。
 
 
 
-#使用手順
+# 使用手順
 1.2個のAIモデル(.xml ファイル、.binファイル)をDownloadします。
 ```
-# Download model(person-detection-retail-0013) into a separate directory
+# Download model(person-detection-retail-0013) into a directory
 curl --create-dirs https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models_bin/1/person-detection-retail-0013/FP16/person-detection-retail-0013.xml https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models_bin/1/person-detection-retail-0013/FP16/person-detection-retail-0013.bin -o model/person-detection-retail-0013.xml -o model/person-detection-retail-0013.bin
 
-# Download model(person-reidentification-retail-0200) into a separate directory
+# Download model(person-reidentification-retail-0200) into a  directory
 https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models_bin/1/person-reidentification-retail-0200/FP16/person-reidentification-retail-0200.xml https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models_bin/1/person-reidentification-retail-0200/FP16/person-reidentification-retail-0200.bin -o model/person-reidentification-retail-0200.xml -o model/person-reidentification-retail-0200.bin
 ```
 
