@@ -1,6 +1,7 @@
 # 学生でも作成できる！お手軽SocialDistanceプログラム
 AI X CORE　を使用して、30秒間のSocialDistanceを計測するプログラム
 
+AI X COREとは？:https://jellyware.jp/aicorex/
 
 
 # 特徴
@@ -36,11 +37,11 @@ Intelの二つのAIモデルを使用した。
 
 
 
-# 使用手順
+# 実行手順
 [注意]
-このプログラムは、AI X CORE(デバイスは"MYRIAD"、OpenVinoのversionは"2020年1")を使用しています。
+このプログラムは、AI X CORE(デバイスは"MYRIAD"、OpenVinoのversionは"2020年1")を使用した、Social＿Distanceプログラムです。
 よって、デバイス、OpenVinoのversionが異なると、使用するAIモデル、AIモデルのSettingのコードを変更する必要があります。
-その点を、踏まえてコードを試していただけると、幸いです。
+その点を、踏まえてコードをご覧になって頂くと、幸いです。
 
 1.2個のAIモデル(.xml ファイル、.binファイル)をDownloadします。
 ```
