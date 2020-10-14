@@ -37,6 +37,11 @@ Intelの二つのAIモデルを使用した。
 
 
 # 使用手順
+[注意]
+このプログラムは、AI X CORE(デバイスは"MYRIAD"、OpenVinoのversionは"2020年1")を使用しています。
+よって、デバイス、OpenVinoのversionが異なると、使用するAIモデル、AIモデルのSettingのコードを変更する必要があります。
+その点を、踏まえてコードを試していただけると、幸いです。
+
 1.2個のAIモデル(.xml ファイル、.binファイル)をDownloadします。
 ```
 # Download model(person-detection-retail-0013) into a directory
@@ -45,4 +50,11 @@ curl --create-dirs https://download.01.org/opencv/2020/openvinotoolkit/2020.1/op
 # Download model(person-reidentification-retail-0200) into a  directory
 https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models_bin/1/person-reidentification-retail-0200/FP16/person-reidentification-retail-0200.xml https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models_bin/1/person-reidentification-retail-0200/FP16/person-reidentification-retail-0200.bin -o model/person-reidentification-retail-0200.xml -o model/person-reidentification-retail-0200.bin
 ```
+2.sample.pyの20行目の"$(pwd)"をカレントディレクトリのフルパスに書き換えます。
 
+3.sample.pyの28行目の"Social_parameter"をカスタマイズします。
+実際のSocialDistanceの距離ではなく、画像のx、y座標の距離となっています。
+なので、実際に動かしながら、調整をしていただきたいです。
+
+
+# 今後改善したいところ
