@@ -16,7 +16,7 @@ AI X COREとは？
 
 <br>
 
-# 静止画
+**静止画**
 ![静止画](https://github.com/AAEEON/SocialDistance/blob/master/shot.png)
 
 <br>
@@ -26,9 +26,9 @@ AI X COREとは？
 
 Intelの二つのAIモデルを使用しました。
 
-人間識別    person-detection-retail-0013   https://docs.openvinotoolkit.org/2018_R5/_docs_Retail_object_detection_pedestrian_rmnet_ssd_0013_caffe_desc_person_detection_retail_0013.html
+**人間識別(person-detection-retail-0013)**     https://docs.openvinotoolkit.org/2018_R5/_docs_Retail_object_detection_pedestrian_rmnet_ssd_0013_caffe_desc_person_detection_retail_0013.html
 
-個別識別    person-reidentification-retail-0200
+**個別識別(person-reidentification-retail-0200)**
 https://docs.openvinotoolkit.org/2020.1/_models_intel_person_reidentification_retail_0200_description_person_reidentification_retail_0200.html
 
 
@@ -55,7 +55,7 @@ https://docs.openvinotoolkit.org/2020.1/_models_intel_person_reidentification_re
 
 # 実行手順
 [注意]
-このプログラムは、AI X CORE(デバイスは"MYRIAD"、OpenVinoのversionは"2020年1")を使用した、Social＿Distanceプログラムです。
+このプログラムは、AI X CORE(デバイスは"**MYRIAD**"、OpenVinoのversionは"**2020年1**")を使用した、Social＿Distanceプログラムです。
 よって、デバイス、OpenVinoのversionが異なると、使用するAIモデル、AIモデルのSettingのコードを変更する必要があります。
 その点を、踏まえてコードをご覧になって頂くと、幸いです。
 
@@ -72,11 +72,11 @@ https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models
 
 <br>
 
-2.　sample.pyの20行目の"$(pwd)"をカレントディレクトリのフルパスに書き換えます。
+2.　sample.pyの20行目の"**$(pwd)**"をカレントディレクトリのフルパスに書き換えます。
 
 <br>
 
-3.sample.pyの28行目の"Social_parameter"をカスタマイズします。
+3.sample.pyの28行目の"**Social_parameter**"をカスタマイズします。
 実際のSocialDistanceの距離ではなく、画像のx、y座標の距離となっています。
 なので、実際に動かしながら、調整をしました。
 
