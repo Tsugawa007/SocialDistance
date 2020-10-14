@@ -55,7 +55,7 @@ Intelの二つのAIモデルを使用した。
 
 <br>
 
-1.2個のAIモデル(.xml ファイル、.binファイル)をDownloadします。
+1.　2個のAIモデル(.xml ファイル、.binファイル)をDownloadします。
 ```
 # Download model(person-detection-retail-0013) into a directory
 curl --create-dirs https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models_bin/1/person-detection-retail-0013/FP16/person-detection-retail-0013.xml https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models_bin/1/person-detection-retail-0013/FP16/person-detection-retail-0013.bin -o model/person-detection-retail-0013.xml -o model/person-detection-retail-0013.bin
@@ -66,7 +66,7 @@ https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models
 
 <br>
 
-2.sample.pyの20行目の"$(pwd)"をカレントディレクトリのフルパスに書き換えます。
+2.　sample.pyの20行目の"$(pwd)"をカレントディレクトリのフルパスに書き換えます。
 
 <br>
 
@@ -74,4 +74,4 @@ https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models
 実際のSocialDistanceの距離ではなく、画像のx、y座標の距離となっています。
 なので、実際に動かしながら、調整をしました。
 
-4.sampl.pyを実行する
+4.　sampl.pyを実行する
