@@ -1,12 +1,10 @@
 # 学生でも作成できる！お手軽SocialDistanceプログラム
 AI X CORE　を使用して、30秒間のSocialDistanceを計測するプログラム
 
-# AI X COREとは？
+AI X COREとは？
 :https://jellyware.jp/aicorex/
 
-
-
-
+<br>
 # 特徴
 
 瞬間的にSocialDistanceを違反したら緑色、30秒間違反したら赤くなります。
