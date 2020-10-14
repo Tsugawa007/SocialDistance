@@ -1,6 +1,95 @@
 <br>
 
-# 日本語
+# Englishversion
+
+<br>
+
+## A Social distance program  that is easier and faster to make!
+This is a program that measures Social distance for 30 seconds using AI X CORE.
+If you have no AI expertise,You can make it quickly using python.
+
+What is AI X CORE？
+:https://jellyware.jp/aicorex/
+
+<br>
+<br>
+
+## Envioroment
+・AI X CORE 
+・OpenVino version is " 2020 1"
+
+
+## Feature
+
+If pedestrians violate Social Distance momentarily, it will turn green, and they violate it for 30 seconds, it will turn red.
+
+<br>
+
+**Picture**
+![Picture](https://github.com/AAEEON/SocialDistance/blob/master/shot.png)
+
+<br>
+<br>
+
+## About AI models 
+
+I used two Intel AI models.
+
+**Human identification(person-detection-retail-0013)**     https://docs.openvinotoolkit.org/2018_R5/_docs_Retail_object_detection_pedestrian_rmnet_ssd_0013_caffe_desc_person_detection_retail_0013.html
+
+**Individual identification(person-reidentification-retail-0200)**
+https://docs.openvinotoolkit.org/2020.1/_models_intel_person_reidentification_retail_0200_description_person_reidentification_retail_0200.html
+
+
+<br>
+<br>
+
+## Postive points
+I applied mosaic processing to the video.
+In addition, the Program  performe not only instantaneous detection but also detection after 30 seconds.
+
+<br>
+<br>
+
+## Points I want to improve in the future
+
+Using existing AI models has limited accuracy.
+Also, the calculation method of Social distance of this program is a simple Euclidean matrix distance.
+I would like to create an AI model by myself and use 3D coordinate transformation (adding the z coordinate of depth to the x and y coordinates of the video) to improve the accuracy.
+
+<br>
+<br>
+
+## Execution procedure
+[Caution]
+If the device and OpenVino version are different from the one I'm using, You need to change the AI model used and the AI model configuration code.
+
+<br>
+
+1.　Download the two AI models (.xml file, .bin file).
+```
+# Download model(person-detection-retail-0013) into a directory
+curl --create-dirs https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models_bin/1/person-detection-retail-0013/FP16/person-detection-retail-0013.xml https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models_bin/1/person-detection-retail-0013/FP16/person-detection-retail-0013.bin -o model/person-detection-retail-0013.xml -o model/person-detection-retail-0013.bin
+
+# Download model(person-reidentification-retail-0200) into a  directory
+https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models_bin/1/person-reidentification-retail-0200/FP16/person-reidentification-retail-0200.xml https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models_bin/1/person-reidentification-retail-0200/FP16/person-reidentification-retail-0200.bin -o model/person-reidentification-retail-0200.xml -o model/person-reidentification-retail-0200.bin
+```
+
+<br>
+
+2.　Rewrite "**$(pwd)**" on the 20th line of sample.py to the full path of the current directory.
+
+<br>
+
+3.  Customize "**Social_parameter**" on line 28 of sample.py.
+Because it is not the actual Social Distance distance, but the x and y coordinate distance of the video.
+
+4.　Run sample.py
+
+
+<br>
+
+# 日本語version
 
 <br>
 
