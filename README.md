@@ -1,3 +1,5 @@
+<br>
+
 # 学生でも作成できる！お手軽SocialDistanceプログラム
 AI X CORE　を使用して、30秒間のSocialDistanceを計測するプログラム
 
@@ -13,6 +15,7 @@ AI X COREとは？
 静止画
 ![静止画](https://github.com/AAEEON/SocialDistance/blob/master/shot.png)
 
+<br>
 
 # AIモデルについて
 
@@ -22,6 +25,7 @@ Intelの二つのAIモデルを使用した。
 
 個別識別    person-reidentification-retail-0200
 
+<br>
 
 # 工夫した点
 
@@ -29,7 +33,7 @@ Intelの二つのAIモデルを使用した。
 
 瞬間的な検知だけではなく、一定時間の検知も行いました。
 
-
+<br>
 
 # 今後改善したいところ
 
@@ -37,7 +41,7 @@ Intelの二つのAIモデルを使用した。
 
 また、SocialDistaceの計算方法も、単純なユークリッド行列距離をしています。
 
-
+<br>
 
 # 実行手順
 [注意]
