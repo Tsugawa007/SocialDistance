@@ -19,7 +19,9 @@ What is AI CORE X？
 
 ## Envioroment
 ・AI CORE X 
+
 ・OpenVino version is " 2020 1"
+(OpenVin is pre-installed in AI CORE X)
 
 
 ## Feature
