@@ -8,6 +8,7 @@ AI X COREとは？
 
 <br>
 <br>
+
 # 特徴
 
 瞬間的にSocialDistanceを違反したら緑色、30秒間違反したら赤くなります。
@@ -22,9 +23,11 @@ AI X COREとは？
 
 Intelの二つのAIモデルを使用した。
 
-人間識別    person-detection-retail-0013
+人間識別    person-detection-retail-0013   https://docs.openvinotoolkit.org/2018_R5/_docs_Retail_object_detection_pedestrian_rmnet_ssd_0013_caffe_desc_person_detection_retail_0013.html
 
 個別識別    person-reidentification-retail-0200
+https://docs.openvinotoolkit.org/2020.1/_models_intel_person_reidentification_retail_0200_description_person_reidentification_retail_0200.html
+
 
 <br>
 <br>
@@ -74,4 +77,4 @@ https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models
 実際のSocialDistanceの距離ではなく、画像のx、y座標の距離となっています。
 なので、実際に動かしながら、調整をしました。
 
-4.　sampl.pyを実行する
+4.　sample.pyを実行する
