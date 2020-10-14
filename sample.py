@@ -16,10 +16,17 @@ class data_base_h:
         self.id = id
         
 #AI model path
-model_H  = '/home/aidl/workspace/intel/person-detection-retail-0013/FP16/person-detection-retail-0013'
-model_P = '/home/aidl/workspace/intel/person-reidentification-retail-0200/FP16/person-reidentification-retail-0200'
+model_H  = '$(pwd)/model/person-detection-retail-0013'
+model_P = '$(pwd)/model/person-reidentification-retail-0200'
 
 def main():
+    '''
+    Please custom Social_parameter
+    Social_parameter determines Social_Distance.
+    But that's not the actual distance. This is the distance between the x and y coordinates on the screen.
+    '''
+    Social_parameter = 50.0
+    
     #Mosaic processing
     def mosaic(img, ratio=0.05):
         small = cv2.resize(img, None, fx=ratio, fy=ratio, interpolation=cv2.INTER_NEAREST)
@@ -129,7 +136,7 @@ def main():
         D_1 = distance.cdist(centroids,centroids,metric = "euclidean")        
         for i in range(0,D_1.shape[0]):
             for j in range(i+1,D_1.shape[1]):
-                if  (D_1[i,j] != 0.0 and D_1[i,j]  < 50.0):
+                if  (D_1[i,j] != 0.0 and D_1[i,j]  < Social_parameter):
                     violate.add(object_H[i].id)
                     violate.add(object_H[j].id)                 
         if index == 1:
