@@ -10,6 +10,7 @@ If you have no AI expertise,You can make it quickly using python.
 
 What is AI CORE X？
 :https://jellyware.jp/aicorex/
+
 **(Sorry, the website is written in Japanese. Please translate with Google TranslateSorry and read it)**
 
 
