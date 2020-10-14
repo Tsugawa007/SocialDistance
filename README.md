@@ -79,3 +79,4 @@ https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models
 なので、実際に動かしながら、調整をしました。
 
 4.　sample.pyを実行する
+
