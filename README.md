@@ -33,3 +33,13 @@ Intelの二つのAIモデルを使用した。
 既存のAIモデルを使用すると、精度に限界がある。
 
 また、SocialDistaceの計算方法も、単純なユークリッド行列距離をしています。
+
+
+
+#使用手順
+1.AIモデル(.xml ファイル、.binファイル)をDownloadします。
+`
+# Download model() into a separate directory
+curl --create-dirs https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models_bin/1/person-detection-retail-0013/FP16/person-detection-retail-0013.xml https://download.01.org/opencv/2020/openvinotoolkit/2020.1/open_model_zoo/models_bin/1/person-detection-retail-0013/FP16/person-detection-retail-0013.bin -o model/person-detection-retail-0013.xml -o model/person-detection-retail-0013.bin
+`
+2.
