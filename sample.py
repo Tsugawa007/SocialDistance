@@ -94,7 +94,6 @@ def main():
                 ymin = abs(int(obj[4] * frame.shape[0]))
                 xmax = abs(int(obj[5] * frame.shape[1]))
                 ymax = abs(int(obj[6] * frame.shape[0]))
-                class_id = int(obj[1])
 
                 obj_img=frame[ymin:ymax,xmin:xmax] 
                 obj_img=cv2.resize(obj_img, (128, 256)) 
