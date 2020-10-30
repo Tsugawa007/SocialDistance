@@ -9,8 +9,8 @@ from openvino.inference_engine import IENetwork,IEPlugin
 #Database design
 class data_base_h:
     def __init__(self, pos, feature, id=-1):
-        self.feature = feature
         self.pos = pos
+        self.feature = feature
         self.time = time.monotonic()
         self.id = id
         
