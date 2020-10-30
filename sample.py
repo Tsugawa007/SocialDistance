@@ -106,7 +106,6 @@ def main():
                 res_reid = exec_net_p.infer(inputs={ input_name_p : obj_img})       
                 vec=np.array(res_reid[out_name_p]).reshape((512))
                 object_H.append(data_base_h([xmin,ymin, xmax,ymax], vec))
-        total_objects=0
 
         #Register in the database
         hangarian = Munkres()
