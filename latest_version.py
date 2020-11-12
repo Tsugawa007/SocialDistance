@@ -157,7 +157,8 @@ def main():
             id = obj.id
             color = (0,0,0)
             xmin, ymin, xmax, ymax = obj.pos
-            image = mosaic_area(image,xmin,ymin,xmax,ymax)
+            if (xmin != 0 and ymin != 0) and (xmax != 0 and ymax != 0): 
+                image = mosaic_area(image,xmin,ymin,xmax,ymax)
             if obj.id in violate:
                color = (0,255,0)
             if obj.id in violate_t:
