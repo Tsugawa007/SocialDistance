@@ -1,3 +1,14 @@
+# Important Notice(12/1)
+You may get an error in the code  in this repository.
+Because I don't have AI Core X  and can't check it right now.
+
+I  plan to upload the improved code around February.
+
+このrepositoryにあるプログラムを使用すると、エラーが発生します。
+なぜなら、手元にAI Core X がないからです。
+
+２月ごろに、改良版をuploadする予定です。
+
 <br>
 
 # English version
