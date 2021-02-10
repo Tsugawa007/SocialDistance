@@ -1,13 +1,8 @@
-# Important Notice(12/1)
-You may get an error in the code  in this repository.
-Because I don't have AI Core X  and can't check it right now.
+# Important Notice(2/10)
+I erased the function of mosaic processing.
 
-I  plan to upload the improved code around February.
-
-このrepositoryにあるプログラムを使用すると、エラーが発生します。
-なぜなら、手元にAI Core X がないからです。
-
-２月ごろに、改良版をuploadする予定です。
+モザイク 処理を廃止しました。
+人々の最小y座標を比べて、奥行きを計算するようにしています。
 
 <br>
 
