@@ -1,4 +1,18 @@
-# Important Notice(2/10)
+# Important Notice(2021/10/27)
+2021年の10月に開催されているIntel® AI Global Impact Festivalという世界的なオンライン祭典の、competeというジャンルの AI Impact Creators部門で日本代表として国に選ばれました。
+そして、その AI Impact Creators部門でファイナリストとして選出されました。
+
+下の英文の下のURLは、Intel® AI Global Impact Festivalで私の作品が展示されている実際の様子です
+
+I was selected to represent my country in the AI Impact Creators category of the Intel AI Global Impact Festival, a global online festival held in October 2021, in the category of "compete".
+And I was selected as a finalist in the AI Impact Creators category.
+
+The URL below is the actual scene of my work being displayed at the Intel® AI Global Impact Festival.
+
+
+https://drive.google.com/file/d/1XpuswL82JC60-36XVGu0RpOAo5WNcSCG/view
+
+(2021/2/10)
 I erased the function of mosaic processing.
 
 モザイク 処理を廃止しました。
