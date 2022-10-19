@@ -1,13 +1,22 @@
-# Important Notice(12/1)
-You may get an error in the code  in this repository.
-Because I don't have AI Core X  and can't check it right now.
+# Important Notice(2021/10/27)
+2021年の10月に開催されているIntel® AI Global Impact Festivalという世界的なオンライン祭典の、competeというジャンルの AI Impact Creators部門で日本代表として国に選ばれました。
+そして、その AI Impact Creators部門でファイナリストとして選出されました。
 
-I  plan to upload the improved code around February.
+下の英文の下のURLは、Intel® AI Global Impact Festivalで私の作品が展示されている実際の様子です
 
-このrepositoryにあるプログラムを使用すると、エラーが発生します。
-なぜなら、手元にAI Core X がないからです。
+I was selected to represent my country in the AI Impact Creators category of the Intel AI Global Impact Festival, a global online festival held in October 2021, in the category of "compete".
+And I was selected as a finalist in the AI Impact Creators category.
 
-２月ごろに、改良版をuploadする予定です。
+The URL below is the actual scene of my work being displayed at the Intel® AI Global Impact Festival.
+
+
+https://drive.google.com/file/d/1XpuswL82JC60-36XVGu0RpOAo5WNcSCG/view
+
+(2021/2/10)
+I erased the function of mosaic processing.
+
+モザイク 処理を廃止しました。
+人々の最小y座標を比べて、奥行きを計算するようにしています。
 
 <br>
 
